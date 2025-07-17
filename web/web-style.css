@@ -1,0 +1,343 @@
+:root {
+  --main-bg: #eceee9;
+  --main-bg-dark: #13191a;
+  --hero-gradient: radial-gradient(ellipse 140% 70% at 60% 5%, #e2eee1 50%, #e0eae4 80%, #fff0 100%);
+  --hero-gradient-dark: radial-gradient(ellipse 140% 70% at 60% 5%, #233227 40%, #22292b 100%);
+  --card-bg: rgba(255,255,255,0.95);
+  --card-bg-dark: rgba(34,44,36,0.94);
+  --glass-bg: rgba(245,250,242,0.7);
+  --glass-bg-dark: rgba(34,44,36,0.78);
+  --glass-blur: blur(8px);
+  --shadow-lg: none;
+  --shadow-card: none;
+  --shadow-hover: none;
+  --border-radius-lg: 2.2rem;
+  --border-radius: 1.3rem;
+  --accent: #0b6845;
+  --accent-dark: #80eab9;
+  --text-main: #192c1e;
+  --text-soft: #42564c;
+  --text-white: #fff;
+  --text-muted: #7b867c;
+  --card-green: #0c2519;
+  --tag-bg: #b7bf96;
+  --tag-bg-dark: #1c2d19;
+  --tag-txt: #fff;
+  --exp-title: #123920;
+  --exp-title-dark: #acefb1;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--main-bg);
+  color: var(--text-main);
+  margin: 0;
+  padding: 0;
+  font-size: 1.11rem;
+  line-height: 1.68;
+  letter-spacing: 0.01em;
+  transition: background 0.4s;
+  font-family: var(--font-main);
+  overflow-x: hidden;
+}
+
+body.dark-mode {
+  background: var(--main-bg-dark);
+  color: #f0f3f0;
+}
+
+/* Gradient BG */
+.background-gradient {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--hero-gradient);
+  transition: background 0.4s;
+}
+body.dark-mode .background-gradient {
+  background: var(--hero-gradient-dark);
+}
+
+/* Resume Container */
+.resume-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 0 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Hero Header */
+.resume-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 2.6rem;
+  margin-bottom: 2.2rem;
+  position: relative;
+}
+.hero-img-box {
+  background: linear-gradient(135deg, #fff 60%, #b7bf96 120%);
+  border-radius: 50%;
+  box-shadow: none;
+  width: 150px; height: 150px;
+  min-width: 150px;
+  margin-bottom: 0.3em;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-img {
+  width: 134px; height: 134px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: none;
+}
+.hero-text {
+  flex: 1 1 320px;
+  min-width: 220px;
+}
+.hero-text h1 {
+  margin: 0 0 2px 0;
+  font-size: 2.7rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0.04em;
+  font-weight: 800;
+}
+.hero-text h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+body.dark-mode .hero-text h2 {
+  color: #fff !important;
+}
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  align-items: center;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0b6845;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.8em 1.45em;
+  box-shadow: none;
+  font-size: 1.09rem;
+  transition: background 0.2s, color 0.22s, transform 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+}
+.download-btn:hover {
+  background: #04662d;
+  color: #fff;
+  box-shadow: none;
+  transform: scale(1.05);
+}
+.mode-toggle-btn {
+  background: #f5f8f7;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  width: 2.55em; height: 2.55em;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.38em;
+  color: #0b6845;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.17s, color 0.2s, transform 0.2s;
+}
+.mode-toggle-btn:hover {
+  background: #e7eeda;
+  color: #17493d;
+  transform: scale(1.05);
+}
+body.dark-mode .mode-toggle-btn {
+  background: #222;
+  color: #b7bf96;
+}
+body.dark-mode .mode-toggle-btn:hover {
+  background: #333;
+  color: #80eab9;
+  transform: scale(1.05);
+}
+
+/* Main Cards Layout */
+.resume-main-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 2.3rem;
+  margin-top: 0.7rem;
+}
+
+/* Sidebar */
+.resume-side {
+  min-width: 330px;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* Content */
+.resume-content {
+  flex: 1 1 630px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.1rem;
+}
+
+/* Glassmorphism Card */
+.card.glass, .card {
+  background: var(--glass-bg);
+  border-radius: var(--border-radius);
+  box-shadow: none;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  padding: 2.3rem 2.0rem 1.5rem 2.0rem;
+  margin: 0 0 0 0;
+  border: 1.5px solid rgba(150,170,160,0.08);
+  transition: box-shadow 0.18s, background 0.3s;
+}
+
+/* Card Headings */
+.card h3, .card .summary-label, .card .exp-label {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.22rem;
+  color: var(--accent);
+  margin: 0 0 13px 0;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.card .fa, .card .fab { color: var(--accent); }
+
+/* Rounded summary/exp label: always green background, white text (all modes) */
+.card-summary .summary-label,
+.card-experience .exp-label,
+.summary-label,
+.exp-label {
+  display: inline-block;
+  background: #0b6845 !important;
+  color: #fff !important;
+  border-radius: 1.5em;
+  padding: 0.33em 1.6em;
+  font-size: 1.07rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+  box-shadow: none !important;
+}
+
+.exp-entry {
+  margin-bottom: 2.1em;
+}
+.exp-title {
+  font-weight: 700;
+  font-size: 1.15em;
+  color: var(--exp-title);
+  margin-bottom: 3px;
+}
+.exp-place {
+  font-size: 1em;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.exp-place span { color: var(--accent); font-weight: 700; margin-left: 5px; }
+.exp-entry ul {
+  margin: 0.6em 0 0.6em 1.1em;
+  padding-left: 1.1em;
+  color: var(--text-main);
+}
+.exp-entry li {
+  margin-bottom: 0.5em;
+  line-height: 1.67;
+}
+
+body.dark-mode .card.glass,
+body.dark-mode .card {
+  background: var(--glass-bg-dark);
+  color: #e3fbe2;
+  box-shadow: none !important;
+  border: 1.5px solid rgba(60,110,90,0.08);
+}
+body.dark-mode .card h3,
+body.dark-mode .card-summary .summary-label,
+body.dark-mode .card-experience .exp-label {
+  color: var(--accent-dark);
+}
+body.dark-mode .exp-title { color: var(--exp-title-dark);}
+body.dark-mode .exp-place { color: #b7bf96;}
+body.dark-mode .exp-entry li,
+body.dark-mode .exp-entry ul { color: #f2fff5;}
+/* Make all text in card-contact the accent color in dark mode */
+body.dark-mode .card-contact .contact-row {
+  color: #80eab9 !important;
+}
+
+/* Keep icons a matching color if desired */
+body.dark-mode .card-contact .fa,
+body.dark-mode .card-contact .fab {
+  color: #80eab9 !important;
+}
+
+.card-contact .contact-row {
+  margin-bottom: 0.55em;
+  color: var(--text-main);
+  font-size: 1.06em;
+  display: flex; align-items: center; gap: 0.63em;
+}
+.card-contact .fa,
+.card-contact .fab { color: #31775d; font-size: 1.05em; }
+.card-contact a { color: #0b6845; text-decoration: underline dotted #b7bf96 1px; }
+.card-contact a:hover { color: #05522f; }
+body.dark-mode .card-contact a { color: #80eab9;}
+body.dark-mode .card-contact { color: #ecfee8;}
+.card-list ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+.card-list li {
+  font-size: 1em;
+  margin-bottom: 0.33em;
+  color: var(--text-soft);
+}
+body.dark-mode .card-list li,
+body.dark-mode .card-list ul,
+body.dark-mode .card-list {
+  color: #d0ffc8 !important;
+}
+
+.card-education b { font-size: 1.06em; color: #125f31;}
+body.dark-mode .card-education b { color: #d0ffc8;}
+.edu-dates { font-size: 0.97em; color: #256b39; font-weight: 700;}
+body.dark-mode .edu-dates { color: #82ffcb;}
+.card-refs b { color: #164e23;}
+.card-refs .ref-small { font-size: 0.98em; color: #898a7b;}
+body.dark-mode .card-refs b { color: #b8fbd2;}
+body.dark-mode .card-refs .ref-small { color: #9ae3bb;}
+body.dark-mode .card-education,
+body.dark-mode .card-education b,
+body.dark-mode .card-refs,
+body.dark-mode .card-refs b,
+body.dark-mode .card-refs .ref-small {
+  color: #d0ffc8 !important;
+}
