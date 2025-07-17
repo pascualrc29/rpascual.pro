@@ -475,3 +475,18 @@ body.dark-mode .circle-btn svg * {
   fill: #222 !important;
   stroke: #222 !important;
 }
+.resume-container {
+  max-width: 480px;
+  margin: 2em auto 0 auto;
+  padding: 0 0 3em 0;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+@media (max-width: 500px) {
+  .resume-container {
+    margin-top: 1.2em;
+  }
+}
