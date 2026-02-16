@@ -1,223 +1,411 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+
   <title>Rodger Pascual | Modern Resume</title>
+
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <link rel="stylesheet" href="web/web-style.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <style>
-    /* Modern UI Variables */
-    :root {
-      --primary: #2ecc71;
-      --bg: #0f172a;
-      --glass: rgba(255, 255, 255, 0.03);
-      --glass-border: rgba(255, 255, 255, 0.08);
-      --text: #f8fafc;
-      --text-dim: #94a3b8;
-    }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+  <link rel="icon" href="img/profile-pic-green-highres.png">
 
-    /* Animated Background */
-    .background-gradient {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(circle at 10% 20%, #1e293b 0%, transparent 40%),
-                  radial-gradient(circle at 90% 80%, #064e3b 0%, transparent 40%);
-      z-index: -1;
-    }
-
-    .resume-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-
-    /* Glass Cards */
-    .glass {
-      background: var(--glass);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      padding: 30px;
-      margin-bottom: 24px;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-    .glass:hover { border-color: var(--primary); transform: translateY(-2px); }
-
-    /* Hero Section */
-    .resume-hero { display: flex; align-items: center; gap: 30px; margin-bottom: 40px; padding: 40px; }
-    .hero-img { width: 140px; height: 140px; border-radius: 24px; border: 3px solid var(--primary); box-shadow: 0 0 25px rgba(46, 204, 113, 0.2); }
-    h1 { font-size: 2.8rem; letter-spacing: -1px; margin-bottom: 5px; }
-    h2 { color: var(--primary); font-weight: 500; font-size: 1.2rem; margin-bottom: 20px; }
-
-    .download-btn {
-      background: var(--primary); color: #fff; padding: 12px 24px; border-radius: 12px;
-      text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;
-    }
-
-    /* Layout Grid */
-    .resume-main-cards { display: grid; grid-template-columns: 380px 1fr; gap: 30px; }
-    h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
-
-    /* Lists & Experience */
-    ul { list-style: none; }
-    li { margin-bottom: 12px; font-size: 0.95rem; position: relative; padding-left: 20px; }
-    li::before { content: "•"; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
-    
-    .exp-entry { margin-bottom: 40px; border-left: 2px solid var(--glass-border); padding-left: 20px; }
-    .exp-title { font-size: 1.2rem; font-weight: 700; color: #fff; }
-    .exp-place { color: var(--text-dim); font-size: 0.9rem; margin: 5px 0 15px; display: flex; justify-content: space-between; }
-    .exp-place span { color: var(--primary); font-weight: 600; }
-
-    .contact-row { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-    a { color: inherit; text-decoration: none; transition: color 0.2s; }
-    a:hover { color: var(--primary); }
-
-    /* Scroll Reveal Animation */
-    .reveal { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 900px) {
-      .resume-main-cards { grid-template-columns: 1fr; }
-      .resume-hero { flex-direction: column; text-align: center; }
-    }
-  </style>
 </head>
+
 <body>
 
 <div class="background-gradient"></div>
 
 <div class="resume-container">
-  <header class="resume-hero glass">
-    <img src="img/profile-pic-green-highres.png" alt="Rodger Pascual" class="hero-img">
-    <div class="hero-text">
-      <h1>RODGER C. PASCUAL</h1>
-      <h2>Senior Management Information System Researcher</h2>
-      <div class="hero-buttons">
-        <a class="download-btn" href="R.C.Pascual Resume.pdf" download>
-          <i class="fa fa-download"></i> Download Resume
-        </a>
-      </div>
+
+  <header class="resume-hero">
+
+    <div class="hero-img-box">
+
+      <img src="img/profile-pic-green-highres.png" alt="Rodger Pascual" class="hero-img">
+
     </div>
+
+    <div class="hero-text">
+
+      <h1>RODGER C. PASCUAL</h1>
+
+      <h2>Senior Management Information System Researcher</h2>
+
+      <div class="hero-buttons">
+
+        <a class="download-btn" href="R.C.Pascual Resume.pdf" download>
+
+          <i class="fa fa-download"></i> Download Resume
+
+        </a>
+
+        <button class="mode-toggle-btn" id="modeToggle" title="Toggle dark/light mode">
+
+          <i class="fa fa-moon"></i>
+
+        </button>
+
+      </div>
+
+    </div>
+
   </header>
 
   <main class="resume-main-cards">
+
     <aside class="resume-side">
-      <div class="card glass reveal">
+
+      <div class="card glass card-contact">
+
         <h3><i class="fa fa-user"></i> Contact</h3>
+
         <div class="contact-row"><i class="fa fa-phone"></i> +639 761 608 004</div>
-        <div class="contact-row"><i class="fa fa-envelope"></i> <a href="mailto:pascualrodgerc@gmail.com">pascualrodgerc@outlook.com</a></div>
+
+        <div class="contact-row"><i class="fa fa-envelope"></i>
+
+          <a href="mailto:pascualrodgerc@gmail.com">pascualrodgerc@outlook.com</a></div>
+
         <div class="contact-row"><i class="fa fa-location-dot"></i> Baliwag City, Bulacan 3006, PH</div>
-        <div class="contact-row"><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/pascualrc" target="_blank">linkedin.com/in/pascualrc</a></div>
+
+        <div class="contact-row"><i class="fab fa-linkedin"></i>
+
+          <a href="https://linkedin.com/in/pascualrc" target="_blank">linkedin.com/in/pascualrc</a></div>
+
       </div>
 
-      <div class="card glass reveal">
+      <div class="card glass card-list card-core">
+
         <h3><i class="fa fa-cube"></i> Core Competencies</h3>
+
         <ul>
-          <li>Leadership & Teamwork</li><li>Government Procurement</li><li>Regulatory Compliance</li><li>Financial Reporting & Budgeting</li><li>Data Analysis & Visualization</li><li>Internal Controls & Audit Support</li><li>Report Writing & Documentation</li><li>Analytical & Organizational Skills</li><li>Problem-Solving & Decision-Making</li><li>Research & Development</li><li>Records & Document Management</li><li>Strategic Planning & Implementation</li><li>Process Digitalization & System Improvement</li><li>Inventory Management & Reconciliation</li><li>Policy Development & Program Support</li>
+
+          <li>Leadership & Teamwork</li>
+
+          <li>Government Procurement</li>
+
+          <li>Regulatory Compliance</li>
+
+          <li>Financial Reporting & Budgeting</li>
+
+          <li>Data Analysis & Visualization</li>
+
+          <li>Internal Controls & Audit Support</li>
+
+          <li>Report Writing & Documentation</li>
+
+          <li>Analytical & Organizational Skills</li>
+
+          <li>Problem-Solving & Decision-Making</li>
+
+          <li>Research & Development</li>
+
+          <li>Records & Document Management</li>
+
+          <li>Strategic Planning & Implementation</li>
+
+          <li>Process Digitalization & System Improvement</li>
+
+          <li>Inventory Management & Reconciliation</li>
+
+          <li>Policy Development & Program Support</li>
+
         </ul>
+
       </div>
 
-      <div class="card glass reveal">
+      <div class="card glass card-list card-tech">
+
         <h3><i class="fa fa-microchip"></i> Technical Skills</h3>
+
         <ul>
-          <li>Microsoft Office Suite & Spreadsheet Automation</li><li>Power BI, QuickBooks, Filmora & Audacity</li><li>AI Coding and Web Development</li><li>Adobe Photoshop, Illustrator & InDesign</li><li>Records Management Systems</li><li>RA 9184 Procurement Compliance</li>
+
+          <li>Microsoft Office Suite & Spreadsheet Automation</li>
+
+          <li>Power BI, QuickBooks, Filmora & Audacity</li>
+
+          <li>AI Coding and Web Development</li>
+
+          <li>Adobe Photoshop, Illustrator & InDesign</li>
+
+          <li>Records Management Systems</li>
+
+          <li>RA 9184 Procurement Compliance</li>
+
         </ul>
+
       </div>
 
-      <div class="card glass reveal">
-        <h3><i class="fa fa-graduation-cap"></i> Education</h3>
-        <p><strong>Master of Arts in Business Administration</strong></p>
-        <p>Baliuag University | <i>Aug 2025 - Present</i></p>
-        <br>
-        <p><strong>Bachelor of Science in Accountancy</strong></p>
-        <p>Fernandez College of Arts and Technology | <i>2015 – 2019</i></p>
+      <div class="card glass card-list card-soft">
+
+        <h3><i class="fa fa-brain"></i> Soft Skills</h3>
+
+        <ul>
+
+          <li>Analytical Thinking</li>
+
+          <li>Attention to Detail</li>
+
+          <li>Report Writing</li>
+
+          <li>Critical Thinking</li>
+
+          <li>Problem Solving</li>
+
+          <li>Time Management</li>
+
+        </ul>
+
       </div>
+
+      <div class="card glass card-education">
+
+        <h3><i class="fa fa-graduation-cap"></i> Education</h3>
+
+        <div><b>Master of Arts in Business Administration</b></div>
+
+        <div>Baliuag University</div>
+
+        <div>Baliwag City, Bulacan</div>
+
+        <div class="edu-dates">Aug 2025 - Present</div>
+
+        <div><b>Bachelor of Science in Accountancy</b></div>
+
+        <div>Fernandez College of Arts and Technology</div>
+
+        <div>Baliwag City, Bulacan</div>
+
+        <div class="edu-dates">Aug 2015 – May 2019</div>
+
+      </div>
+
+      <div class="card glass card-refs">
+
+        <h3><i class="fa fa-user-check"></i> Character Reference</h3>
+
+        <div>
+
+          <b>Mariefel Stewart</b><br>
+
+          Company Owner, Tally Bookkeeping LLC<br>
+
+          <span class="ref-small">+1 516 864 1933 • mariefelstewart@tallykeep.co</span>
+
+        </div>
+
+        <div style="margin-top:10px">
+
+          <b>Steven Ivan G. Caiña</b><br>
+
+          OIC - Supervising SRS, Department of Energy<br>
+
+          <span class="ref-small">Phone: +63 917 162 7963 •  icaina@doe.gov.ph</span>
+
+        </div>
+
+      </div>
+
     </aside>
 
     <section class="resume-content">
-      <div class="card glass reveal">
-        <h3>Professional Summary</h3>
-        <p>Experienced accounting professional with a bachelor’s degree in accountancy and over five years of work in both government and private sectors. Familiar with procurement planning under RA 9184, financial operations, records handling, and research support. Able to improve processes and maintain accurate data through solid analytical and organizational abilities. Has supported administrative functions and contributed to compliance, reporting, and enforcement tasks. Reliable, consistent, and working well under pressure. Open to roles in procurement, compliance, accounting, or research that require accuracy, responsibility, and quality work.</p>
+
+      <div class="card glass card-summary">
+
+        <h3 class="summary-label">Professional Summary</h3>
+
+        <p>
+
+          Experienced accounting professional with a bachelor’s degree in accountancy and over five years of work in both government and private sectors. Familiar with procurement planning under RA 9184, financial operations, records handling, and research support. Able to improve processes and maintain accurate data through solid analytical and organizational abilities. Has supported administrative functions and contributed to compliance, reporting, and enforcement tasks. Reliable, consistent, and working well under pressure. Open to roles in procurement, compliance, accounting, or research that require accuracy, responsibility, and quality work.
+
+        </p>
+
       </div>
 
-      <div class="card glass reveal">
-        <h3>Professional Experience</h3>
-        
-        <div class="exp-entry">
-          <div class="exp-title">Remote Bookkeeper – Freelance</div>
-          <div class="exp-place">Tally Bookkeeping LLC | New York, USA (Remote) <span>Jan 2025 - Present</span></div>
-          <ul>
-            <li>Managed the full bookkeeping cycle for a diverse portfolio of clients, ensuring accurate and timely financial reporting.</li>
-            <li>Provided comprehensive financial services, including accounts payable, accounts receivable, and bank reconciliations for assigned businesses.</li>
-            <li>Utilized cloud-based accounting software to maintain up-to-date and organized financial records.</li>
-            <li>Analyzed client financial data to generate key reports to improve cash flow.</li>
-            <li>Collaborated with clients and internal teams within the company to optimize financial workflows and ensure compliance with reporting standards.</li>
-            <li>Assisted clients in identifying recommended systems based on their business model, operation, and structure.</li>
-          </ul>
-        </div>
+      <div class="card glass card-experience">
 
-        <div class="exp-entry">
-          <div class="exp-title">Senior Management Information System Researcher</div>
-          <div class="exp-place">Baliwag Water District | Bulacan <span>Jan 2025 – Present</span></div>
-          <ul>
-            <li>Developed and maintained comprehensive dashboards and reports to support strategic decision-making.</li>
-            <li>Worked together with cross-functional teams to optimize information system workflows and data integrity.</li>
-            <li>Performed in-depth analysis to identify areas for process improvement and implemented solutions to enhance efficiency.</li>
-            <li>Ensured compliance with data governance policies and standards across all information systems.</li>
-            <li>Performed research and analysis on non-revenue to enhance leak detection strategies and reduce water loss.</li>
-            <li>Authored Records Management Manual, Business Continuity Plan, and Emergency Response Plan.</li>
-            <li>Served as Vice-Chairman, Records Committee, and FOI Receiving Officer.</li>
-          </ul>
-        </div>
+        <h3 class="exp-label">Professional Experience</h3>
 
-        <div class="exp-entry">
-          <div class="exp-title">Science Research Specialist I</div>
-          <div class="exp-place">Department of Energy | Metro Manila <span>Oct 2021 – Jan 2025</span></div>
-          <ul>
-            <li>Contributed to developing the Philippine Energy Labeling Program (PELP) System, a centralized database of Energy-Consuming Products (ECPs).</li>
-            <li>Assisted in the evaluation of company and product registrations to ensure compliance with PELP regulations, and processing of payments, certificates of exemption, and energy label issuances.</li>
-            <li>Assisted in the conduct of information, education, and communication (IEC) campaigns and provided technical guidance to stakeholders and program implementors for PELP.</li>
-            <li>Assisted in the conduct of nationwide Enforcement, Monitoring, and Verification (EMV) activities for energy-consuming devices, ensuring adherence to Philippine Energy Labeling Program (PELP) guidelines.</li>
-            <li>Assisted in the development of the Data Analytic Toolkit on Energy-Consuming Products, Energy Savings, and Consumer Behavior Trends.</li>
-            <li>Assisted in developing the Work and Financial Plan (WFP) and Project Procurement Management Plan (PPMP) to facilitate effective resource allocation and procurement.</li>
-            <li>Executed procurement tasks, including creating terms of reference, defining item specifications, canvassing suppliers, and ensuring timely delivery and compliance.</li>
-            <li>Prepared contracts-maintained supplier relationships to ensure prompt deliveries, and processed disbursements for timely payments.</li>
-            <li>Supported stakeholder engagement in the Philippine Energy Labeling Program (PELP) through conducting Information, Education, and Communication (IEC) activities, public consultations, and industry meetings.</li>
-            <li>Provided creative support through video and graphic editing, enhancing presentation materials for stakeholder engagement.</li>
-            <li>Provided ICT-related assistance to the team, maintaining equipment, identifying critical IT infrastructure, and supporting IEC activities with necessary software.</li>
-            <li>Served as one of the focal people for the Green Procurement Project of the Government Procurement Policy Board (GPPB).</li>
-          </ul>
-        </div>
+    <div class="exp-entry">
 
-        <div class="exp-entry">
+        <div class="exp-title">Remote Bookkeeper – Freelance</div>
+
+        <div class="exp-place">Tally Bookkeeping LLC | New York, USA (Remote) <span>Jan 2025 - Present</span></div>
+
+        <ul>
+
+             <li>Managed the full bookkeeping cycle for a diverse portfolio of clients, ensuring accurate and timely financial reporting.</li>
+
+             <li>Provided comprehensive financial services, including accounts payable, accounts receivable, and bank reconciliations for assigned businesses.</li>
+
+             <li>Utilized cloud-based accounting software to maintain up-to-date and organized financial records.</li>
+
+             <li>Analyzed client financial data to generate key reports to improve cash flow.</li>
+
+             <li>Collaborated with clients and internal teams within the company to optimize financial workflows and ensure compliance with reporting standards.</li>
+
+             <li>Assisted clients in identifying recommended systems based on their business model, operation, and structure.</li>
+
+        </ul>
+
+    </div>
+
+   <div class="exp-entry">
+
+        <div class="exp-title">Senior Management Information System Researcher – Casual</div>
+
+        <div class="exp-place">Baliwag Water District | Baliwag City, Bulacan <span>Jan 2025 – Present</span></div>
+
+        <ul>
+
+             <li>Developed and maintained comprehensive dashboards and reports to support strategic decision-making.</li>
+
+             <li>Worked together with cross-functional teams to optimize information system workflows and data integrity.</li>
+
+             <li>Performed in-depth analysis to identify areas for process improvement and implemented solutions to enhance efficiency.</li>
+
+             <li>Ensured compliance with data governance policies and standards across all information systems.</li>
+
+             <li>Performed research and analysis on non-revenue to enhance leak detection strategies and reduce water loss.</li>
+
+             <li>Authored Records Management Manual, Business Continuity Plan, and Emergency Response Plan.</li>
+
+             <li>Served as Vice-Chairman, Records Committee, and FOI Receiving Officer.</li>
+
+        </ul>
+
+   </div>
+
+   <div class="exp-entry">
+
+        <div class="exp-title">Science Research Specialist I</div>
+
+        <div class="exp-place">Department of Energy | Taguig City, Metro Manila <span>Oct 2021 – Jan 2025</span></div>
+
+          <ul>
+
+                <li>Contributed to developing the Philippine Energy Labeling Program (PELP) System, a centralized database of Energy-Consuming Products (ECPs).</li>
+
+                <li>Assisted in the evaluation of company and product registrations to ensure compliance with PELP regulations, and processing of payments, certificates of exemption, and energy label issuances.</li>
+
+                <li>Assisted in the conduct of information, education, and communication (IEC) campaigns and provided technical guidance to stakeholders and program implementors for PELP.</li>
+
+                <li>Assisted in the conduct of nationwide Enforcement, Monitoring, and Verification (EMV) activities for energy-consuming devices, ensuring adherence to Philippine Energy Labeling Program (PELP) guidelines.</li>
+
+                <li>Assisted in the development of the Data Analytic Toolkit on Energy-Consuming Products, Energy Savings, and Consumer Behavior Trends.</li>
+
+                <li>Assisted in developing the Work and Financial Plan (WFP) and Project Procurement Management Plan (PPMP) to facilitate effective resource allocation and procurement.</li>
+
+                <li>Executed procurement tasks, including creating terms of reference, defining item specifications, canvassing suppliers, and ensuring timely delivery and compliance.</li>
+
+                <li>Prepared contracts-maintained supplier relationships to ensure prompt deliveries, and processed disbursements for timely payments.</li>
+
+                <li>Supported stakeholder engagement in the Philippine Energy Labeling Program (PELP) through conducting Information, Education, and Communication (IEC) activities, public consultations, and industry meetings.</li>
+
+                <li>Provided creative support through video and graphic editing, enhancing presentation materials for stakeholder engagement.</li>
+
+                <li>Provided ICT-related assistance to the team, maintaining equipment, identifying critical IT infrastructure, and supporting IEC activities with necessary software.</li>
+
+                <li>Served as one of the focal people for the Green Procurement Project of the Government Procurement Policy Board (GPPB).</li>
+
+          </ul>
+
+   </div>
+
+     <div class="exp-entry">
+
           <div class="exp-title">Accounting Officer</div>
-          <div class="exp-place">Red Horizon Credit Cooperative <span>Jun 2021 – Oct 2021</span></div>
+
+          <div class="exp-place">Red Horizon Credit Cooperative | Pasay City, Metro Manila <span>Jun 2021 – Oct 2021</span></div>
+
           <ul>
-            <li>Oversaw daily financial transactions, ensuring accuracy and adherence to accounting principles.</li>
-            <li>Prepared and analyzed financial statements, budgets, and forecasts to inform organizational strategy.</li>
-            <li>Implemented internal controls to safeguard assets and ensure compliance with regulatory requirements.</li>
-            <li>Coordinated with external auditors during financial audits and facilitated the resolution of audit findings.</li>
+
+               <li>Oversaw daily financial transactions, ensuring accuracy and adherence to accounting principles.</li>
+
+               <li>Prepared and analyzed financial statements, budgets, and forecasts to inform organizational strategy.</li>
+
+               <li>Implemented internal controls to safeguard assets and ensure compliance with regulatory requirements.</li>
+
+               <li>Coordinated with external auditors during financial audits and facilitated the resolution of audit findings.</li>
+
           </ul>
-        </div>
-      </div>
+
+     </div>
+
+     <div class="exp-entry">
+
+          <div class="exp-title">Inventory Management – Head</div>
+
+          <div class="exp-place">Alternatives Food Corp. | Pasig City, Metro Manila <span>Aug 2020 – May 2021</span></div>
+
+          <ul>
+
+               <li>Developed and implemented inventory control procedures to maintain optimal stock levels and reduce waste.</li>
+
+               <li>Utilized inventory management software to track stock movements and generate accurate inventory reports.</li>
+
+               <li>Worked together with procurement and sales teams to forecast demand and plan inventory accordingly.</li>
+
+               <li>Performed regular audits to ensure inventory accuracy and compliance with company policies.</li>
+
+          </ul>
+
+     </div>
+
+     <div class="exp-entry">
+
+          <div class="exp-title">Finance Officer</div>
+
+          <div class="exp-place">HIS Bulacan Corporation | Plaridel, Bulacan <span>Jan 2020 – Jul 2020</span></div>
+
+          <ul>
+
+               <li>Prepared and monitored budgets, financial reports, and forecasts to support organizational financial health.</li>
+
+               <li>Oversaw accounts payable and receivable, ensuring timely processing and reconciliation.</li>
+
+               <li>Ensured compliance with financial regulations and standards through regular reviews and audits.</li>
+
+               <li>Provided financial insights and recommendations to senior management to inform decision-making.</li>
+
+          </ul>
+
+     </div>
+
+     <div class="exp-entry">
+
+          <div class="exp-title">Accounting Staff</div>
+
+          <div class="exp-place">Jocelyn Forge Inc. | Meycauayan, Bulacan <span>Sep 2019 – Dec 2019</span></div>
+
+          <ul>
+
+               <li>Performed general ledger accounting, including journal entries and account reconciliations.</li>
+
+               <li>Assisted in the preparation of financial statements and reports in accordance with GAAP.</li>
+
+               <li>Processed invoices and Oversaw accounts payable and receivable functions.</li>
+
+               <li>Supported month-end and year-end closing processes to ensure timely financial reporting.</li>
+
+          </ul>
+
+     </div>
+
     </section>
+
   </main>
+
 </div>
 
-<script>
-  // Intersection Observer for the 'reveal' animation
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('active');
-    });
-  }, { threshold: 0.1 });
+<script src="web/web-script.js"></script>
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
 </body>
+
 </html>
